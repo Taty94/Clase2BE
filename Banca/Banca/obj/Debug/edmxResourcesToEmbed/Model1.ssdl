@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="bancaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="account">
+    <Key>
+      <PropertyRef Name="account_Id" />
+    </Key>
+    <Property Name="account_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="account_user_Id" Type="int" />
+    <Property Name="account_Numero" Type="varchar" MaxLength="15" />
+    <Property Name="account_IdTipo" Type="int" />
+    <Property Name="account_Saldo" Type="decimal" Precision="18" Scale="2" />
+  </EntityType>
+  <EntityType Name="usuario">
+    <Key>
+      <PropertyRef Name="user_Id" />
+    </Key>
+    <Property Name="user_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="user_Cedula" Type="varchar" MaxLength="10" />
+    <Property Name="user_Nombre" Type="varchar(max)" />
+    <Property Name="user_Direccion" Type="varchar(max)" />
+    <Property Name="user_FechaNacimiento" Type="datetime" />
+    <Property Name="user_Email" Type="varchar" MaxLength="50" />
+    <Property Name="user_Edad" Type="int" />
+  </EntityType>
+  <EntityContainer Name="bancaModelStoreContainer">
+    <EntitySet Name="account" EntityType="Self.account" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="usuario" EntityType="Self.usuario" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>
